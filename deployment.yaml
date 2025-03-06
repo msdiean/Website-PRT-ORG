@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: apache-deployment  # Changed name to apache-deployment
+  name: nginx-deployment
   labels:
-    app: apache2  # Updated app label
+    app: nginx
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
-      app: apache2  # Updated selector to match Apache pods
+      app: nginx
   template:
     metadata:
       labels:
-        app: apache2  # Updated pod label
+        app: nginx
     spec:
       containers:
-      - name: apache
-        image: msdiean/project2:latest  # Ensure this image contains Apache2
+      - name: nginx
+        image: msdiean/prt:latest
         ports:
         - containerPort: 80
